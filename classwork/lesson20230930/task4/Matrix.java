@@ -77,12 +77,15 @@ public class Matrix{
 	public static Matrix enterMatrix(int height, int width, Scanner reader){
 		double[][] dataDouble = new double[height][width];
 
+		System.out.println("Введите матрицу " + height + "x" + width + " :");
+
 		for(int i = 0; i < height; i++){
 			for(int j = 0; j < width; j++){
 				dataDouble[i][j] = reader.nextInt();
 			}
 		}
 
+		System.out.println("Ввод закончен");
 		return new Matrix(dataDouble);
 	}
 
