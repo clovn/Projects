@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Matrix{
 	private double[][] matrix;
@@ -71,6 +72,18 @@ public class Matrix{
 				}
 			}
 		}
+	}
+
+	public static Matrix enterMatrix(int height, int width, Scanner reader){
+		double[][] dataDouble = new double[height][width];
+
+		for(int i = 0; i < height; i++){
+			for(int j = 0; j < width; j++){
+				dataDouble[i][j] = reader.nextInt();
+			}
+		}
+
+		return new Matrix(dataDouble);
 	}
 
 	@Override
