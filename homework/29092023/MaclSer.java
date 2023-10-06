@@ -1,5 +1,3 @@
-
-
 public class MaclSer{
     public static void main(String[] args) {
         String func = args[0];
@@ -29,6 +27,7 @@ public class MaclSer{
 
 class Utils{
     final static double ESP = 1e-10;
+
 
     public static double degreesToRadians(double degrees){
         return (degrees * Math.PI) / 180.0;
