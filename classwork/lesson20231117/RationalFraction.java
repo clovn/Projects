@@ -2,12 +2,13 @@ public class RationalFraction{
 	private int numer;
 	private int denom;
 
-	public RationalFraction(int numer, int denom){
+	public RationalFraction(int numer, int denom) throws ZeroDenomException{
 		this.numer = numer;
+		if(denom == 0) throw new ZeroDenomException();
 		this.denom = denom;
 	}
 
-	public RationalFraction(){
+	public RationalFraction() throws ZeroDenomException{
 		this(0, 1);
 	}
 
@@ -27,7 +28,7 @@ public class RationalFraction{
 		denom /= a;
 	}
 
-	public RationalFraction add(RationalFraction rf){
+	public RationalFraction add(RationalFraction rf) throws ZeroDenomException {
 		RationalFraction res = new RationalFraction(numer*rf.denom + denom*rf.numer, denom*rf.denom);
 		res.reduce();
 		return res;
@@ -39,7 +40,7 @@ public class RationalFraction{
 		reduce();
 	}
 
-	public RationalFraction sub(RationalFraction rf){
+	public RationalFraction sub(RationalFraction rf) throws ZeroDenomException{ 
 		RationalFraction res = new RationalFraction(numer*rf.denom - denom*rf.numer, denom*rf.denom);
 		res.reduce();
 		return res;
@@ -51,7 +52,7 @@ public class RationalFraction{
 		reduce();
 	}
 
-	public RationalFraction mult(RationalFraction rf){
+	public RationalFraction mult(RationalFraction rf) throws ZeroDenomException{
 		RationalFraction res = new RationalFraction(numer*rf.numer, denom*rf.denom);
 		res.reduce();
 		return res;
@@ -63,15 +64,16 @@ public class RationalFraction{
 		reduce();
 	}
 
-	public RationalFraction div(RationalFraction rf){
+	public RationalFraction div(RationalFraction rf) throws ZeroDenomException{
 		RationalFraction res = new RationalFraction(numer*rf.denom, denom*rf.numer);
 		res.reduce();
 		return res;
 	}
 
-	public void div2(RationalFraction rf){
+	public void div2(RationalFraction rf) throws ZeroDenomException{
 		numer *= rf.denom;
 		denom *= rf.numer;
+		if(denom == 0) throw new ZeroDenomException();
 		reduce();
 	}
 
